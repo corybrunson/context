@@ -13,7 +13,8 @@ Description: This package contains functions to construct formal contexts, in
 Depends:
     R (>= 3.0.1)
 Imports:
-    dplyr
+    dplyr,
+    xtable
 Suggests:
 License: GPL-2
 RoxygenNote: 5.0.1

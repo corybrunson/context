@@ -8,10 +8,8 @@
 #' @param na.value Numeric. Value to assign to NA entries in value-specific
 #'   columns. (NA entries are converted to 1 in NA columns.) Defaults to 0.
 #' @return A data frame having the same number of rows as \code{data}.
-
-# function to create binary columns from factor columns
+#' @export
 binarize_col <- function(data, col = 1:ncol(data), sep = ".", na.value = 0) {
-  
   # use recursion to reduce the function to the one-variable setting
   if (length(col) > 1) {
     as.data.frame(dplyr::bind_cols(lapply(col, binarize_col, data = data)))
