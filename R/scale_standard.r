@@ -1,14 +1,12 @@
 #' Standard scales
 #' 
 #' @name scale_standard
-#' @example inst/examples/scale_standard.r
 #' @param objs Vector (usually character or factor).
 #' @param x Factor vector. Ignored if \code{objs} is present.
 #' @param n Positive integer. The number of objects in the scale. Ignored if 
 #'   \code{objs} or \code{var} is present.
-#' @param scale Character. Name of standard scale. Possible values are
-#'   "nominal", "boolean", "ordinal", "revordinal", "interordinal", and
-#'   "biordinal". Defaults to "nominal".
+#' @param scale Character. Name of standard scale, e.g. "ordinal". Defaults to
+#'   "nominal".
 #' @param ... Additional arguments (listed below) passed from 
 #'   \code{scale_standard} to specific scale generators.
 #' @param cut Numeric. Integer between 0 and \code{length(objs)} indicating the 
@@ -35,6 +33,7 @@ scale_standard <- function(objs, x, n, scale = "nominal", ...) {
 }
 
 #' @rdname scale_standard
+#' @export
 scale_nominal <- function(objs) {
   scale_mat <- diag(length(objs))
   rownames(scale_mat) <- colnames(scale_mat) <- sort(objs)
@@ -42,6 +41,7 @@ scale_nominal <- function(objs) {
 }
 
 #' @rdname scale_standard
+#' @export
 scale_boolean <- function(objs) {
   scale_mat <- 1 - diag(length(objs))
   rownames(scale_mat) <- sort(objs)
@@ -50,6 +50,7 @@ scale_boolean <- function(objs) {
 }
 
 #' @rdname scale_standard
+#' @export
 scale_ordinal <- function(objs) {
   scale_mat <- upper.tri(diag(length(objs)), diag = TRUE)
   class(scale_mat) <- "numeric"
@@ -59,6 +60,7 @@ scale_ordinal <- function(objs) {
 }
 
 #' @rdname scale_standard
+#' @export
 scale_revordinal <- function(objs) {
   scale_mat <- lower.tri(diag(length(objs)), diag = TRUE)
   class(scale_mat) <- "numeric"
@@ -68,6 +70,7 @@ scale_revordinal <- function(objs) {
 }
 
 #' @rdname scale_standard
+#' @export
 scale_interordinal <- function(objs) {
   scale_mat <- cbind(upper.tri(diag(length(objs)), diag = TRUE),
                      lower.tri(diag(length(objs)), diag = TRUE))
@@ -79,6 +82,7 @@ scale_interordinal <- function(objs) {
 }
 
 #' @rdname scale_standard
+#' @export
 scale_biordinal <- function(objs, cut = ceiling(length(objs) / 2)) {
   if (cut == 0) return(scale_revordinal(objs))
   if (cut == length(objs)) return(scale_ordinal(objs))

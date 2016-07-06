@@ -2,6 +2,7 @@
 % Please edit documentation in R/scale_standard.r
 \name{scale_standard}
 \alias{scale_biordinal}
+\alias{scale_boolean}
 \alias{scale_interordinal}
 \alias{scale_nominal}
 \alias{scale_ordinal}
@@ -12,6 +13,8 @@
 scale_standard(objs, x, n, scale = "nominal", ...)
 
 scale_nominal(objs)
+
+scale_boolean(objs)
 
 scale_ordinal(objs)
 
@@ -29,12 +32,13 @@ scale_biordinal(objs, cut = ceiling(length(objs)/2))
 \item{n}{Positive integer. The number of objects in the scale. Ignored if 
 \code{objs} or \code{var} is present.}
 
-\item{scale}{Character. Name of standard scale. Possible values are "nominal"
-and "ordinal". Defaults to "nominal".}
+\item{scale}{Character. Name of standard scale, e.g. "ordinal". Defaults to
+"nominal".}
 
-\item{...}{Additional arguments passed to specific scale generators.}
+\item{...}{Additional arguments (listed below) passed from 
+\code{scale_standard} to specific scale generators.}
 
-\item{cut}{Numeric. Integer between 0 and \code{length(objs)} indicating the
+\item{cut}{Numeric. Integer between 0 and \code{length(objs)} indicating the 
 index at which to cut \code{objs} for biordinal scaling.}
 }
 \description{
