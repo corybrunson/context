@@ -1,13 +1,15 @@
 #' Standard scales
 #' 
 #' @name scale_standard
+#' @example inst/examples/scale_standard.r
 #' @param objs Vector (usually character or factor).
 #' @param x Factor vector. Ignored if \code{objs} is present.
 #' @param n Positive integer. The number of objects in the scale. Ignored if 
 #'   \code{objs} or \code{var} is present.
-#' @param scale Character. Name of standard scale. Possible values are "nominal"
-#'   and "ordinal". Defaults to "nominal".
-#' @param ... Additional arguments (listed below) passed from
+#' @param scale Character. Name of standard scale. Possible values are
+#'   "nominal", "boolean", "ordinal", "revordinal", "interordinal", and
+#'   "biordinal". Defaults to "nominal".
+#' @param ... Additional arguments (listed below) passed from 
 #'   \code{scale_standard} to specific scale generators.
 #' @param cut Numeric. Integer between 0 and \code{length(objs)} indicating the 
 #'   index at which to cut \code{objs} for biordinal scaling.
@@ -36,6 +38,14 @@ scale_standard <- function(objs, x, n, scale = "nominal", ...) {
 scale_nominal <- function(objs) {
   scale_mat <- diag(length(objs))
   rownames(scale_mat) <- colnames(scale_mat) <- sort(objs)
+  scale_mat
+}
+
+#' @rdname scale_standard
+scale_boolean <- function(objs) {
+  scale_mat <- 1 - diag(length(objs))
+  rownames(scale_mat) <- sort(objs)
+  colnames(scale_mat) <- paste0("neq_", sort(objs))
   scale_mat
 }
 
