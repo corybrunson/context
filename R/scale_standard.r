@@ -1,6 +1,7 @@
 #' Standard scales
 #' 
 #' @name scale_standard
+#' @example inst/examples/scale_standard.r
 #' @param objs Vector (usually character or factor).
 #' @param x Factor vector. Ignored if \code{objs} is present.
 #' @param n Positive integer. The number of objects in the scale. Ignored if 
