@@ -7,8 +7,9 @@
 #'   \code{objs} or \code{var} is present.
 #' @param scale Character. Name of standard scale. Possible values are "nominal"
 #'   and "ordinal". Defaults to "nominal".
-#' @param ... Additional arguments passed to specific scale generators.
-#' @param cut Numeric. Integer between 0 and \code{length(objs)} indicating the
+#' @param ... Additional arguments (listed below) passed from
+#'   \code{scale_standard} to specific scale generators.
+#' @param cut Numeric. Integer between 0 and \code{length(objs)} indicating the 
 #'   index at which to cut \code{objs} for biordinal scaling.
 #' @export
 scale_standard <- function(objs, x, n, scale = "nominal", ...) {
