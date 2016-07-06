@@ -7,9 +7,9 @@
 #' @return Binary numeric matrix.
 #' @export
 binarize_matrix <- function(x, stat, thres, test = NULL) {
-  # ensure that x is a binary matrix
+  # ensure that x is a frequency table
   x <- as.matrix(x)
-  stopifnot(all(x %in% 0:1))
+  stopifnot(all(x >= 0))
   
   # calculate the desired matrix of statistics
   stat_mat <- if (stat == "chisq") {

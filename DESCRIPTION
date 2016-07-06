@@ -1,4 +1,4 @@
-Package: contexts
+Package: context
 Type: Package
 Title: Produce formal contexts (binary matrices) from data
 Version: 0.1

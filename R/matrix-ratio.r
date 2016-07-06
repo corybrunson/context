@@ -6,9 +6,9 @@
 #' @param x Numeric non-negative matrix.
 #' @export
 matrix_ratio <- function(x) {
-  # ensure that x is a binary matrix
+  # ensure that x is a frequency table
   x <- as.matrix(x)
-  stopifnot(all(x %in% 0:1))
+  stopifnot(all(x >= 0))
   
   # calculate matrix of joint probabilities
   mat_joint <- x / sum(x)
