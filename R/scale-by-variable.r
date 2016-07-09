@@ -1,11 +1,12 @@
-#' Expand variables in a data frame via conceptual scaling
+#' Expand variables in a data frame via contextualized or named conceptual
+#' scaling
 #' 
 #' @example inst/examples/scale-by-variable.r
 #' @param data Data frame.
 #' @param var Character. The name of the column of \code{data} that \code{scale}
 #'   scales.
-#' @param scale Binary numeric matrix or character. The scale to use to
-#'   transform \code{var}, either as a formal context (binary matrix) or as a
+#' @param scale Binary numeric matrix or character. The scale to use to 
+#'   transform \code{var}, either as a formal context (binary matrix) or as a 
 #'   standard type (passed to \code{\link{make_scale_standard}}).
 #' @return A binary matrix (formal context).
 #' @export

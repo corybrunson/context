@@ -3,7 +3,8 @@
 \name{scale_by_variable}
 \alias{scale_by_variable}
 \alias{scale_by_variables}
-\title{Expand variables in a data frame via conceptual scaling}
+\title{Expand variables in a data frame via contextualized or named conceptual
+scaling}
 \usage{
 scale_by_variable(data, var, scale)
 
@@ -15,8 +16,8 @@ scale_by_variables(data, vars = names(scales), scales)
 \item{var}{Character. The name of the column of \code{data} that \code{scale}
 scales.}
 
-\item{scale}{Binary numeric matrix or character. The scale to use to
-transform \code{var}, either as a formal context (binary matrix) or as a
+\item{scale}{Binary numeric matrix or character. The scale to use to 
+transform \code{var}, either as a formal context (binary matrix) or as a 
 standard type (passed to \code{\link{make_scale_standard}}).}
 
 \item{vars}{Character vector. The names of the columns of \code{data} that
@@ -29,7 +30,8 @@ scales to transform \code{vars}.}
 A binary matrix (formal context).
 }
 \description{
-Expand variables in a data frame via conceptual scaling
+Expand variables in a data frame via contextualized or named conceptual
+scaling
 }
 \examples{
 titanic_data <- as.data.frame(Titanic)

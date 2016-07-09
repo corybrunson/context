@@ -2,7 +2,7 @@
 % Please edit documentation in R/scale-by-predicate.r
 \name{scale_by_predicate}
 \alias{scale_by_predicate}
-\title{Expand variables in a data frame via conceptual scaling}
+\title{Expand variables in a data frame via logical conceptual scaling}
 \usage{
 scale_by_predicate(data, predicate)
 }
@@ -15,6 +15,14 @@ scale_by_predicate(data, predicate)
 A binary matrix (formal context).
 }
 \description{
-Expand variables in a data frame via conceptual scaling
+Expand variables in a data frame via logical conceptual scaling
+}
+\examples{
+# logical expressions involving single variables
+scale_by_predicate(mtcars, cyl == 8)
+scale_by_predicate(mtcars, mpg > 20)
+
+# logical expressions involving multiple variables
+scale_by_predicate(mtcars, cyl > 4 & wt < 3)
 }
 

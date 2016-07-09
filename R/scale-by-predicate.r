@@ -1,5 +1,6 @@
-#' Expand variables in a data frame via conceptual scaling
+#' Expand variables in a data frame via logical conceptual scaling
 #' 
+#' @example inst/examples/scale-by-predicate.r
 #' @param data Data frame.
 #' @param predicate A logical expression involving variables in \code{data}.
 #' @return A binary matrix (formal context).
