@@ -1,5 +1,6 @@
 #' Build conceptual scale based on pattern matching
 #' 
+#' @example inst/examples/make-scale-regex.r
 #' @param objs Vector (usually character or factor).
 #' @param patterns Character vector of regular expressions. Each attribute of 
 #'   the resulting context amounts to \code{grepl(x = objs, pattern = pattern)} 
@@ -8,7 +9,7 @@
 #'   \code{patterns}, if \code{patterns} is not provided.
 #' @return A binary matrix (formal context).
 #' @export
-make_scale_grep <- function(objs, patterns, split) {
+make_scale_regex <- function(objs, patterns, split) {
   # each object should only appear once (in order of appearance)
   objs <- unique(objs)
   
