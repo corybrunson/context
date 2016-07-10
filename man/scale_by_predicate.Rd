@@ -4,15 +4,18 @@
 \alias{scale_by_predicate}
 \title{Expand variables in a data frame via logical conceptual scaling}
 \usage{
-scale_by_predicate(data, predicate)
+scale_by_predicate(data, predicates)
 }
 \arguments{
 \item{data}{Data frame.}
 
-\item{predicate}{A logical expression involving variables in \code{data}.}
+\item{predicates}{A logical expression involving variables in \code{data}, or
+a list of such expressions.}
 }
 \value{
-A binary matrix (formal context).
+A binary numeric matrix (formal context) of \code{nrow(data)} rows 
+  and 1 column, whose entries are the truth values of \code{predicate} 
+  applied to the rows of \code{data}.
 }
 \description{
 Expand variables in a data frame via logical conceptual scaling
@@ -24,5 +27,11 @@ scale_by_predicate(mtcars, mpg > 20)
 
 # logical expressions involving multiple variables
 scale_by_predicate(mtcars, cyl > 4 & wt < 3)
+
+# multiple logical expressions
+scale_by_predicate(mtcars, list(cyl > 4, wt < 3, mpg > 20))
+
+# singleton list
+scale_by_predicate(mtcars, list(cyl == 6))
 }
 
