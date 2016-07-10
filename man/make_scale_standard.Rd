@@ -8,7 +8,7 @@
 \alias{make_scale_ordinal}
 \alias{make_scale_revordinal}
 \alias{make_scale_standard}
-\title{Standard scales}
+\title{Build standard conceptual scales}
 \usage{
 make_scale_standard(objs, n, scale = "nominal", ...)
 
@@ -40,7 +40,7 @@ make_scale_biordinal(objs, cut = ceiling(length(objs)/2))
 index at which to cut \code{objs} for biordinal scaling.}
 }
 \description{
-Standard scales
+Build standard conceptual scales
 }
 \examples{
 titanic_data <- as.data.frame(Titanic)

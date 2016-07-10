@@ -1,4 +1,4 @@
-#' Standard scales
+#' Build standard conceptual scales
 #' 
 #' @name make_scale_standard
 #' @example inst/examples/make-scale-standard.r

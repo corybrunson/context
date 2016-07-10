@@ -1,4 +1,4 @@
-#' Conceptual scale based on pattern matching
+#' Build conceptual scale based on pattern matching
 #' 
 #' @param objs Vector (usually character or factor).
 #' @param patterns Character vector of regular expressions. Each attribute of 

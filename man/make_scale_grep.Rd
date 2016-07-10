@@ -2,7 +2,7 @@
 % Please edit documentation in R/make-scale-grep.r
 \name{make_scale_grep}
 \alias{make_scale_grep}
-\title{Conceptual scale based on pattern matching}
+\title{Build conceptual scale based on pattern matching}
 \usage{
 make_scale_grep(objs, patterns, split)
 }
@@ -20,6 +20,6 @@ for some \code{pattern} in \code{patterns}.}
 A binary matrix (formal context).
 }
 \description{
-Conceptual scale based on pattern matching
+Build conceptual scale based on pattern matching
 }
 
