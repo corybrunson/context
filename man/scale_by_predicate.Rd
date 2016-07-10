@@ -10,7 +10,8 @@ scale_by_predicate(data, predicates)
 \item{data}{Data frame.}
 
 \item{predicates}{A logical expression involving variables in \code{data}, or
-a list of such expressions.}
+a list of such expressions. If a list, then the names of any named elements
+will be used as column names in the resulting context.}
 }
 \value{
 A binary numeric matrix (formal context) of \code{nrow(data)} rows 
@@ -33,5 +34,10 @@ scale_by_predicate(mtcars, list(cyl > 4, wt < 3, mpg > 20))
 
 # singleton list
 scale_by_predicate(mtcars, list(cyl == 6))
+
+# list with some predicates named
+scale_by_predicate(mtcars, list(`4-cyl` = cyl == 4,
+                                wt > 2,
+                                goodMPG = mpg > 20))
 }
 

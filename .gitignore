@@ -3,3 +3,5 @@
 .Rapp.history
 .RData
 
+# Mac OS X
+*.DS_Store
