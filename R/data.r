@@ -13,7 +13,6 @@
 #'   \item{M}{maintainability}
 #' }
 #' @example inst/examples/ejem.r
-#' @source Ganter, B. and Stumme, G. and Wille, R. (2005) Formal Concept
-#'   Analysis: Foundations and Applications
-#'   \url{http://www.springer.com/us/book/9783540278917}
+#' @source Ganter, B. and Wille, R. (2005) Formal Concept Analysis: Mathematical
+#'   Foundations \url{http://www.springer.com/us/book/9783540627715}
 "ejem"

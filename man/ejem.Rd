@@ -15,9 +15,8 @@
   \item{M}{maintainability}
 }}
 \source{
-Ganter, B. and Stumme, G. and Wille, R. (2005) Formal Concept
-  Analysis: Foundations and Applications
-  \url{http://www.springer.com/us/book/9783540278917}
+Ganter, B. and Wille, R. (2005) Formal Concept Analysis: Mathematical
+  Foundations \url{http://www.springer.com/us/book/9783540627715}
 }
 \usage{
 ejem
