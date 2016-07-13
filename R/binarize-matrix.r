@@ -55,7 +55,7 @@ matrix_chisq <- function(x) {
     for(j in 1:ncol(mat_chisq)) {
       ct <- matrix(c(x[i, j], sum(x[-i, j]), sum(x[i, -j]), sum(x[-i, -j])),
                    nrow = 2)
-      mat_chisq[i, j] <- chisq.test(ct)$statistic
+      mat_chisq[i, j] <- stats::chisq.test(ct)$statistic
     }
   }
   

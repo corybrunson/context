@@ -58,8 +58,8 @@ write_context_coron <- function(x, file = "") {
   cat("\n", file = file, append = TRUE)
   
   # cross-table
-  write.table(x, file = file, append = TRUE, quote = FALSE,
-              row.names = FALSE, col.names = FALSE)
+  utils::write.table(x, file = file, append = TRUE, quote = FALSE,
+                     row.names = FALSE, col.names = FALSE)
   
   # postamble
   cat("[END Relational Context]\n", file = file, sep = " | ", append = TRUE)
@@ -86,5 +86,5 @@ write_context_concepts <- function(x, file = "") {
   x[one.points] <- "X"
   
   # create csv file that will be put in a directory based on the file name
-  write.csv(x, file = file, quote = FALSE)
+  utils::write.csv(x, file = file, quote = FALSE)
 }
