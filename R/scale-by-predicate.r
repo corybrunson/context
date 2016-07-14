@@ -13,7 +13,7 @@ scale_by_predicate <- function(data, predicates) {
   # substitute predicates
   subs <- substitute(predicates)
   # evaluate predicates
-  evals <- eval(subs, envir = data)
+  evals <- eval(subs, envir = data, enclos = parent.frame())
   # organize them as a data frame
   ctx <- as.data.frame(evals)
   rownames(ctx) <- rownames(data)
