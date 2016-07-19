@@ -22,13 +22,7 @@ make_scale_standard <- function(objs, n, scale = "nominal", ...) {
   }
   
   # each object should only appear once (in order of appearance)
-  objs <- if (is.factor(objs)) {
-    levs <- levels(objs)
-    if (any(is.na(objs))) levs <- c(levs, NA)
-    levs
-  } else unique(objs)
-  objs <- as.character(objs)
-  if (NA %in% objs) objs[which(is.na(objs))] <- "NA"
+  objs <- uniquify_objects(objs)
   
   # scaling context
   scale_type <- get(paste0("make_scale_", scale))
@@ -39,6 +33,7 @@ make_scale_standard <- function(objs, n, scale = "nominal", ...) {
 #' @rdname make_scale_standard
 #' @export
 make_scale_nominal <- function(objs) {
+  objs <- uniquify_objects(objs)
   scale_mat <- diag(length(objs))
   rownames(scale_mat) <- colnames(scale_mat) <- objs
   scale_mat
@@ -47,6 +42,7 @@ make_scale_nominal <- function(objs) {
 #' @rdname make_scale_standard
 #' @export
 make_scale_boolean <- function(objs) {
+  objs <- uniquify_objects(objs)
   scale_mat <- 1 - diag(length(objs))
   rownames(scale_mat) <- objs
   colnames(scale_mat) <- paste0("neq_", objs)
@@ -56,6 +52,7 @@ make_scale_boolean <- function(objs) {
 #' @rdname make_scale_standard
 #' @export
 make_scale_ordinal <- function(objs) {
+  objs <- uniquify_objects(objs)
   scale_mat <- upper.tri(diag(length(objs)), diag = TRUE)
   class(scale_mat) <- "numeric"
   rownames(scale_mat) <- objs
@@ -66,6 +63,7 @@ make_scale_ordinal <- function(objs) {
 #' @rdname make_scale_standard
 #' @export
 make_scale_revordinal <- function(objs) {
+  objs <- uniquify_objects(objs)
   scale_mat <- lower.tri(diag(length(objs)), diag = TRUE)
   class(scale_mat) <- "numeric"
   rownames(scale_mat) <- objs
@@ -76,6 +74,7 @@ make_scale_revordinal <- function(objs) {
 #' @rdname make_scale_standard
 #' @export
 make_scale_interordinal <- function(objs) {
+  objs <- uniquify_objects(objs)
   scale_mat <- cbind(upper.tri(diag(length(objs)), diag = TRUE),
                      lower.tri(diag(length(objs)), diag = TRUE))
   class(scale_mat) <- "numeric"
@@ -88,6 +87,7 @@ make_scale_interordinal <- function(objs) {
 #' @rdname make_scale_standard
 #' @export
 make_scale_biordinal <- function(objs, cut = ceiling(length(objs) / 2)) {
+  objs <- uniquify_objects(objs)
   if (cut == 0) return(make_scale_revordinal(objs))
   if (cut == length(objs)) return(make_scale_ordinal(objs))
   rem <- length(objs) - cut
@@ -100,4 +100,15 @@ make_scale_biordinal <- function(objs, cut = ceiling(length(objs) / 2)) {
   colnames(scale_mat) <- paste0(rep(c("leq", "geq"), c(cut, rem)),
                                 "_", objs)
   scale_mat
+}
+
+uniquify_objects <- function(objs) {
+  objs <- if (is.factor(objs)) {
+    levs <- levels(objs)
+    if (any(is.na(objs))) levs <- c(levs, NA)
+    levs
+  } else unique(objs)
+  objs <- as.character(objs)
+  if (NA %in% objs) objs[which(is.na(objs))] <- "NA"
+  objs
 }
