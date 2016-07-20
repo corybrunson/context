@@ -107,6 +107,8 @@ uniquify_objects <- function(objs) {
     levs <- levels(objs)
     if (any(is.na(objs))) levs <- c(levs, NA)
     levs
+  } else if (is.numeric(objs)) {
+    sort(unique(objs))
   } else unique(objs)
   objs <- as.character(objs)
   if (NA %in% objs) objs[which(is.na(objs))] <- "NA"
